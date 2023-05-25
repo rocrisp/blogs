@@ -1,4 +1,4 @@
-# Beginner's Guide: Installing JBoss EAP Operator on OpenShift
+# Harnessing the Power: Deploying JBoss EAP Applications with Ease on OpenShift using the JBoss EAP Operator
 
 By Rose Crisp
 
