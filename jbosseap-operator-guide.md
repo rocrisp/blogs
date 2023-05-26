@@ -41,11 +41,10 @@ A use case for the JBoss EAP Operator is when an organization wants to deploy an
 - Search for `jboss eap` (provided by Red Hat)and install it.
 - Choose`All namespaces on the cluster` as the installation mode(defaults to`openshift-operators` namespace).
 
-#### Step 3: Deploy your first example
+#### Step 3: Deploy your first application example
 
 - Switch to the "wildfly" namepsace: `oc project wildfly`.
- 
-- Utilize Helm to build and install the application image using Source-to_Image (S2I)
+- Utilize [Helm Chart](https://github.com/jbossas/eap-charts/tree/main/charts/eap74) to build JBoss EAP application image using Source-to_Image (S2I) on OpenShift.
   ```
   cat <<EOF > helm.yaml
   build:
