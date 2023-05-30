@@ -1,4 +1,4 @@
-# Streamlining Enterprise Application Deployment with the `EAP Operator`: A Beginner's Guide
+# Streamlining Enterprise Application Deployment with the **EAP Operator**: A Beginner's Guide
 
 By Rose Crisp
 
