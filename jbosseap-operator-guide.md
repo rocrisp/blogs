@@ -1,4 +1,4 @@
-# Streamlining Enterprise Application Deployment with the EAP Operator: A Beginner's Guide"
+# Streamlining Enterprise Application Deployment with the `EAP Operator`: A Beginner's Guide
 
 By Rose Crisp
 
@@ -6,30 +6,24 @@ By Rose Crisp
 
 
 
-If you're a Java developer looking for a powerful platform to build highly transactional and scalable applications, you've come to the right place. 
+If you're a Java developer looking for a powerful platform to build highly transactional and scalable applications, you've come to the right place.
 
-In this article, we'll explore the incredible capabilities of Red Hat JBoss EAP and discover how it can be seamlessly deployed and managed on OpenShift using the Red Hat JBoss EAP Operator.
+In this article, we'll highlights the benefits of `JBoss Enterprise Application Platform` and provide you with a detailed step-by-step guide on deploying and managing it effortlessly on OpenShift using the `EAP Operator`.
 
 So, let's dive in and unlock the true potential of your Java applications!
 
 
-### What is [JBoss EAP](https://developers.redhat.com/products/eap/overview)? 
+### What is Red Hat JBoss Enterprise Application Platfrom [(JBoss EAP)](https://developers.redhat.com/products/eap/overview)? 
 
-JBoss EAP is an open-source platform for building highly transactional and scalable Java applications. By combining Jakarta EE specifications with modern technologies like Eclipse MicroProfile, it enables the transformation of traditional Java EE applications into cloud-native architectures. 
+`JBoss EAP` is an open-source platform for building highly transactional and scalable Java applications. By combining Jakarta EE specifications with modern technologies like Eclipse MicroProfile, it enables the transformation of traditional Java EE applications into cloud-native architectures. 
 
-JBoss EAP provides a comprehensive set of tools to develop, deploy, and manage enterprise Java applications in various environments, including on-premise, virtual setups, and private/public/hybrid clouds. 
+It provides a comprehensive set of tools to develop, deploy, and manage enterprise Java applications in various environments, including on-premise, virtual setups, and private/public/hybrid clouds. 
 
-Based on the widely used open-source project WildFly, JBoss EAP offers everything needed to build, run, and manage enterprise Java applications effectively.
+Based on the widely used open-source project [`WildFly`](https://github.com/wildfly), `JBoss EAP` offers everything needed to build, run, and manage enterprise Java applications effectively.
 
-### What is the Red Hat JBoss EAP Operator?
+### What is the EAP Operator?
 
-Based on the Open Source upstream project, [`wildfly-operator`](https://github.com/wildfly/wildfly-operator), The `Red Hat JBoss EAP Operator` takes the management of `Red Hat JBoss EAP` workloads to a whole new level within a Kubernetes cluster. 
-
-It is a Kubernetes-native application that simplifies the deployment and scaling of JBoss EAP instances, leveraging the inherent capabilities of Kubernetes and extending them to support JBoss EAP resources as custom Kubernetes objects. 
-
-By automating provisioning, lifecycle management, and integration with Kubernetes monitoring and logging frameworks, the JBoss EAP Operator streamlines the deployment and management of JBoss EAP applications in cloud-native environments. 
-
-It enables centralized configuration management, supports high availability, scaling, and seamlessly integrates with CI/CD pipelines. With the JBoss EAP Operator, you can harness the full power of JBoss EAP and unleash the potential of your Java applications.
+Based on the Open Source upstream project, [`wildfly-operator`](https://github.com/wildfly/wildfly-operator), the `EAP Operator` is a software component that facilitates the deployment and management of the `JBoss EAP` on container orchestration platforms like OpenShift. The operator acts as an automated management tool, simplifying the process of provisioning, scaling, and updating JBoss EAP applications.
 
 ### What is an [Operator](https://www.cncf.io/blog/2022/06/15/kubernetes-operators-what-are-they-some-examples/#:~:text=K8s%20Operators%20are%20controllers%20for,Custom%20Resource%20Definitions%20(CRD).)?
 
@@ -41,27 +35,28 @@ Acting as controllers for packaging, managing, and deploying applications on Kub
 
 Operators extend Kubernetes capabilities, performing complex functions beyond the scope of native Kubernetes operations.
 
-### What are the use cases for using the Red Hat JBoss EAP operator?
+### What are the use cases for using the JBoss EAP operator?
 
-The `Red Hat JBoss EAP Operator` serves various use cases for organizations looking to deploy and manage multiple instances of the `Red Hat JBoss EAP` within a Kubernetes cluster. Let's explore a few scenarios where the `Red Hat JBoss EAP Operator` shines:
+The `EAP Operator` serves various use cases for organizations looking to deploy and manage multiple instances of the `JBoss EAP` Java application instances within a Kubernetes cluster.
+
+Let's explore a few scenarios where the `EAP Operator` shines:
 
 - Simplified Management:
 
-  The `Red Hat JBoss EAP Operator` automates provisioning, scaling, and lifecycle management tasks, providing a standardized and streamlined approach to deploy and manage `Red Hat JBoss EAP` applications. It abstracts away the complexities of manual configuration, making management a breeze.
+  The `EAP Operator` create, configure, manage, and seamlessly upgrade instances of complex stateful applications. It abstracts away the complexities of manual configuration, making management a breeze.
 
 - Efficient Scaling and Updates:
 
-  With the `Red Hat JBoss EAP Operator`, you can effortlessly scale your `Red hat JBoss EAP` instances based on demand. It ensures that your applications can handle increased traffic by automatically provisioning additional resources. Furthermore, the Operator facilitates seamless updates, enabling you to roll out new features and bug fixes without downtime.
+  Effortlessly scale your `JBoss EAP` Java application instances based on demand. It ensures that your applications can handle increased traffic by automatically provisioning additional resources. Furthermore, the Operator facilitates seamless updates, enabling you to roll out new features and bug fixes without downtime.
 
-- Integration with CI/CD Pipelines:
+- Ensures safe transaction recovery:
 
-  The `Red hat JBoss EAP Operator` seamlessly integrates with your CI/CD pipelines, enabling you to achieve continuous delivery of your Java applications. It streamlines the deployment process, ensuring consistent configurations and efficient application updates.
-
+  `EAP Operator` ensures safe transaction recovery in your application cluster by verifying all transactions are completed before scaling down the replicas and marking a pod as clean for termination. The `EAP operator` uses StatefulSet for the appropriate handling of EJB remoting and transaction recovery processing. The StatefulSet ensures persistent storage and network hostname stability even after pods are restarted.
 
 ---
 
 ## Installation Steps:
-Now, let's walk through the steps to install the `Red Hat JBoss EAP Operator` on your [OpenShift 4.x Cluster](https://www.redhat.com/en/technologies/cloud-computing/openshift) and deploy your first example application: 
+Now, let's walk through the steps to install the `EAP Operator` on your [OpenShift 4.x Cluster](https://www.redhat.com/en/technologies/cloud-computing/openshift) and deploy your first example application: 
 
 
 #### Step 1: Create a project
@@ -79,6 +74,7 @@ Now, let's walk through the steps to install the `Red Hat JBoss EAP Operator` on
 
 - Switch to the "wildfly" namepsace: `oc project wildfly`.
 - Utilize [Helm Chart](https://github.com/jbossas/eap-charts/tree/main/charts/eap74) to build the JBoss EAP application image using Source-to_Image (S2I) on OpenShift.
+
   ```
   cat <<EOF > helm.yaml
   build:
@@ -90,6 +86,7 @@ Now, let's walk through the steps to install the `Red Hat JBoss EAP Operator` on
   helm install eap7-app -f ./helm.yaml --repo https://charts.openshift.io redhat-eap74
   ```
 - Create the application by applying the following YAML configuration using the `wildflyserver` custom resource:
+
   ```
   cat <<EOF | oc apply -f -
   apiVersion: wildfly.org/v1alpha1
@@ -107,8 +104,12 @@ Now, let's walk through the steps to install the `Red Hat JBoss EAP Operator` on
 - The Operator automatically generates routes for you. Simply copy and paste the route into your web browser.
 - To view the routes, run: `oc get route`
 
-#### By following these steps, you can successfully install the `Red Hat JBoss EAP Operator` on your OpenShift cluster and deploy your first example application. Additionally, you can explore more examples [in this repository](https://github.com/jboss-eap-up-and-running).
+---
 
-#### The `Red Hat JBoss EAP Operator` empowers you to harness the full potential of `Red Hat JBoss EAP`, simplifying management, enabling efficient scaling, and seamless integration with CI/CD pipelines. 
+By following these steps, you can successfully install the `EAP Operator` on your OpenShift cluster and deploy your first example application.
 
-#### Start exploring the possibilities and unlock the power of your Java applications with JBoss EAP and the JBoss EAP Operator.
+Furthermore, you can discover additional examples to experiment with within [this repository](https://github.com/jboss-eap-up-and-running).
+
+The `EAP Operator` empowers you to harness the full potential of `JBoss EAP`, simplifying management, enabling efficient scaling, and ensures safe transaction recovery in your application cluster. 
+
+Start exploring the possibilities and unlock the power of your Java applications with the `EAP Operator`.
