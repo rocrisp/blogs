@@ -73,7 +73,7 @@ Now, let's walk through the steps to install the EAP Operator on your [OpenShift
 #### Step 3: Deploy your first example application
 
 - Switch to the "wildfly" namepsace: `oc project wildfly`.
-- Utilize this [Helm Chart](https://github.com/jbossas/eap-charts/tree/main/charts/eap74) to build the JBoss EAP application image using Source-to-Image (S2I) on OpenShift.
+- Utilize this [Helm Chart](https://github.com/jbossas/eap-charts/tree/main/charts/eap-xp4) to build the JBoss EAP application image using Source-to-Image (S2I) on OpenShift.
 
   ```
   cat <<EOF > helm.yaml
