@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-    <img src="https://hackmd.io/_uploads/H1YUcly5h.png" height="200">
+    <img src="https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_908f68400772f81edcb1922ec59b4d41.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1689358534&Signature=YtTv04rqtzcpSOK3ISL0nnBZ1yU%3D" height="200">
 </div>
 
 ### Even if you're new to software development, creating Kubernetes Operators can be a straightforward process. This guide is designed to make it accessible and easy to understand.
