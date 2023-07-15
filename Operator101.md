@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-    <img src="https://hackmd-prod-images.s3-ap-northeast-1.amazonaws.com/uploads/upload_908f68400772f81edcb1922ec59b4d41.png?AWSAccessKeyId=AKIA3XSAAW6AWSKNINWO&Expires=1689358534&Signature=YtTv04rqtzcpSOK3ISL0nnBZ1yU%3D" height="200">
+    <img src="https://camo.githubusercontent.com/99535d13950ec333648479b02406e9abbec77fe00b60254753162745a17ec578/68747470733a2f2f6861636b6d642d70726f642d696d616765732e73332d61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f75706c6f6164732f75706c6f61645f39303866363834303037373266383165646362313932326563353962346434312e706e673f4157534163636573734b657949643d414b4941335853414157364157534b4e494e574f26457870697265733d31363839333538353334265369676e61747572653d5974547630347271747a6370534f4b3349534c306e6e425a317955253344" height="200">
 </div>
 
 ### Even if you're new to software development, creating Kubernetes Operators can be a straightforward process. This guide is designed to make it accessible and easy to understand.
@@ -8,17 +8,13 @@
 In the context of Kubernetes, an Operator is a method of packaging, deploying, and managing a Kubernetes-native application. Operators leverage **Custom Controllers** and **Custom Resource Definitions** (CRDs) to extend Kubernetes functionality and define application-specific behavior.
 
 ## Why Operators?
-Operators simplify the management of Kubernetes applications by automating complex tasks. They handle deployments, scaling, and maintenance, reducing the need for manual intervention. Let's explore the reasons why Operators are gaining popularity.
 
-#### Simplified Application Deployment
-When deploying applications in Kubernetes or OpenShift, it often requires understanding deployment processes, scaling mechanisms, backup and recovery procedures, and integration complexities. 
+Deploying applications in Kubernetes or OpenShift often involves understanding complex processes such as deployment, scaling, backup and recovery, and integration. 
+This complexity escalates when dealing with stateful applications or intricate integrations. 
 
-This becomes even more challenging when dealing with stateful applications or intricate integrations. Operators address these challenges by automating these operations, eliminating the need for manual intervention.
+However, Operators simplify these challenges by automating these operations, eliminating the need for manual intervention. They handle the automation and management of applications within Kubernetes, taking care of tasks such as deployment, configuration, and ongoing operations. 
 
-#### Automation and Management
-Operators handle the automation and management of applications within Kubernetes. Instead of relying on manual efforts from users, Operators take care of tasks such as deployment, configuration, and ongoing operations. 
-
-By leveraging Operators, application installation becomes streamlined, with complex configurations and operations handled automatically.
+By leveraging Operators, the process of application installation is streamlined, with complex configurations and operations handled automatically, thereby reducing reliance on manual efforts.
 
 ## Custom Resource Definitions (CRDs)
 Custom Resource Definitions (CRDs) enable Operators to define and manage application-specific resources effortlessly. Customize your Kubernetes applications with ease.
