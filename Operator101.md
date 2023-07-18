@@ -16,8 +16,22 @@ However, Operators simplify these challenges by automating these operations, eli
 
 By leveraging Operators, the process of application installation is streamlined, with complex configurations and operations handled automatically, thereby reducing reliance on manual efforts.
 
+## Kubernetes Controllers and Custom Controllers
+In Kubernetes, controllers are responsible for managing and ensuring the desired state of several resources in the cluster. By using the reconciliation loops which continuously monitor the current state of resources, compare it with the desired state, and take action to reconcile any differences. Controllers help maintain system health, enforce policies, and ensure the proper functioning of applications.
+
+**Custom Controller** extends Kubernetes to support their specific use cases and domain-specific requirements. This flexibility allows for the development of highly specialized and tailored solutions within the Kubernetes ecosystem, providing fine-grained control over the behavior and management of custom resources.  They are typically implemented as custom applications running outside the Kubernetes control plane as standalone processes.
+
+
+Here are a few examples of Kubernetes controllers and their responsibilities:
+
+- **Deployment Controller**: The deployment controller manages the rollout and updates of applications. It ensures that the desired number of replicas are available, performs rolling updates to deploy new versions, and handles rollbacks if necessary.
+
+- **DaemonSet Controller**: DaemonSet controllers ensure that a specific pod runs on every or specific nodes in the cluster. They are useful for deploying cluster-wide services or agents, such as logging or monitoring agents, that require presence on every node.
+
+- **Job/CronJob Controller**: These controllers manage the execution of batch workloads. The Job controller ensures that a specific task or workload is completed, while the CronJob controller schedules and runs recurring jobs based on a specified schedule.
+
 ## Custom Resource Definitions (CRDs)
-Custom Resource Definitions (CRDs) enable Operators to define and manage application-specific resources effortlessly. Customize your Kubernetes applications with ease.
+Custom Resource Definitions (CRDs) serves as the blueprint for custom resource in Kubernetes. It enables Operators to define and manage application-specific resources effortlessly. Customize your Kubernetes applications with ease.
 
 ## Operator Hub and Marketplace
 Explore the [Operator Hub](https://operatorhub.io/), a centralized platform where you can discover a wide range of pre-built Operators contributed by experts and enthusiasts."
