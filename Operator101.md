@@ -65,9 +65,8 @@ Use the [`make docker-build docker-push`](https://sdk.operatorframework.io/docs/
 
 ### Information for publishing your Operator on [OperatorHub.io](https://operatorhub.io/contribute)
 
-### Steps of creating, testing, and publishing your operator on OperatorHub.io
-
-![](https://hackmd.io/_uploads/BkJhd6B53.png)
+### Chart: Creating, testing, and publishing your operator on OperatorHub.io
+![](https://hackmd.io/_uploads/BJTeipSch.png)
 
 
 ## Conclusion
