@@ -139,6 +139,21 @@ Kubernetes Operators are designed to be used by various roles involved in deploy
 5. **System Administrators**: Sysadmins who are managing a Kubernetes environment can use Operators to automate many of the tasks involved in managing applications.
 
 Operators can also be beneficial for software vendors and open-source projects. By providing an Operator for their software, they can make it easier for their users to run their software on Kubernetes. Users get the benefits of automated operations and deep application-specific knowledge, while the vendor or project can ensure their software is run in a way that adheres to best practices.
+
+## Tools/Libraries you can use to write your own cloud native operator
+[Charmed Operator Framework](https://juju.is/)
+[Java Operator SDK](https://github.com/operator-framework/java-operator-sdk)
+[Kopf](https://github.com/nolar/kopf) (Kubernetes Operator Pythonic Framework)
+[kube-rs](https://kube.rs/) (Rust)
+[kubebuilder](https://book.kubebuilder.io/)
+[KubeOps](https://buehler.github.io/dotnet-operator-sdk/) (.NET operator SDK)
+[KUDO](https://kudo.dev/) (Kubernetes Universal Declarative Operator)
+[Mast](https://docs.ansi.services/mast/user_guide/operator/)
+[Metacontroller](https://metacontroller.github.io/metacontroller/intro.html) along with WebHooks that you implement yourself
+[Operator Framework](https://operatorframework.io/)
+[shell-operator](https://github.com/flant/shell-operator)
+
+
 ## Struggles/Setbacks
 ### What are the struggles and setbacks we've seen with Operators?
 While Kubernetes Operators offer many benefits, they also come with their own set of challenges and potential setbacks:
@@ -164,3 +179,18 @@ Absolutely, there is always room for improvement. As Kubernetes Operators contin
 7. **Operator Lifecycle Management**: There are existing tools like the Operator Framework's Operator Lifecycle Manager (OLM) that help in the management of operators on a Kubernetes cluster. These tools can be continually improved to simplify the process of installing, upgrading, and managing operators.
 
 In conclusion, while Kubernetes Operators have already brought significant benefits to managing complex applications on Kubernetes, there is still a lot of potential for future improvements. The Kubernetes community continues to actively develop and refine the concept of Operators, and we can expect to see these and other improvements in the future.
+
+### What are the future prospects and end goals for operators?
+The future of Kubernetes Operators looks very promising. As more organizations adopt Kubernetes and cloud-native technologies, the use of Operators is expected to grow. Operators help manage the complexity of running stateful and distributed systems on Kubernetes, making them an essential part of many Kubernetes deployments.
+
+Here are a few areas where we might see development and progress:
+
+1. **Increased Adoption**: As the benefits of Operators become more widely recognized, we'll likely see more organizations adopting them. This includes not only tech companies but also organizations in other sectors that are adopting Kubernetes and cloud-native technologies.
+2. **More Sophisticated Operators**: As the Operator pattern matures, we'll likely see more sophisticated Operators capable of managing increasingly complex systems. This includes Operators that can handle complex tasks like automatic scaling based on application-level metrics, automated disaster recovery, and so on.
+3. **Standardization**: As more Operators are developed, we'll likely see increased standardization. This could include best practices for developing Operators, standardized ways to package and distribute Operators, and possibly even standardized APIs for common operational tasks.
+4. **Better Tooling**: We'll likely see improvements in the tooling around Operators. This could include better ways to test Operators, improved logging and monitoring for Operators, and better integration with existing Kubernetes tools and APIs.
+5. **Integration with CI/CD Pipelines**: We may see tighter integration of Operators with CI/CD pipelines to automate deployment and management of applications on Kubernetes as part of the deployment process.
+
+The ultimate goal of Operators is to automate as much operational knowledge as possible. This allows human operators to focus on higher-level concerns while the Operator takes care of routine tasks and ensures that the application is running correctly. As the technology matures, we'll likely see Operators taking on more responsibilities and becoming an even more integral part of managing applications on Kubernetes.
+
+### Where do we see operators going in 5-10 years?
