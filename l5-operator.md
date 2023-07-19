@@ -1,17 +1,32 @@
 
-Welcome to this deep dive into l5-operator! In this blog post, we will explore the inner workings of the l5-operator, a Kubernetes operator that manages the lifecycle of Bestie resources. We'll delve into its architecture, key components, and the core logic behind its operations. Whether you're a beginner looking to understand Kubernetes operators or an experienced developer seeking insights into l5-operator's implementation details, this deep dive is for you.
+Welcome to this deep dive into l5-operator! 
+
+In this blog post, we will explore the inner workings of the l5-operator, a Kubernetes operator that manages the lifecycle of Bestie resources. 
+
+We'll delve into its architecture, key components, and the core logic behind its operations. 
+
+Whether you're a beginner looking to understand Kubernetes operators or an experienced developer seeking insights into l5-operator's implementation details, this deep dive is for you.
 
 Table of Contents:
 
 [What is a Kubernetes Operator?](#What-is-a-Kubernetes-Operator?)
+
 [Introducing l5-operator](#Introducing-l5-operator)
+
 [Architecture Overview](#Architecture-Overview)
+
 [Reconciliation: The Heart of l5-operator](#internal/sub_reconcilers/)
+
 [Controllers](#controllers) and [Custom Resource Definitions (CRDs)](#Custom-Resource-Definition)
+
 [Managing Deployments with DeploymentReconciler](#Managing-deployments)
+
 [Database Seeding and Condition Updates](#Database-seeding)
+
 [Deploying l5-operator](#Deploying-l5-operator)
+
 [Best Practices and Lessons Learned](#Best-Practices-and-Lessons-Learned)
+
 [Conclusion](#Conclusion)
 
 #### What is a Kubernetes Operator?
