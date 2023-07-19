@@ -141,17 +141,17 @@ Kubernetes Operators are designed to be used by various roles involved in deploy
 Operators can also be beneficial for software vendors and open-source projects. By providing an Operator for their software, they can make it easier for their users to run their software on Kubernetes. Users get the benefits of automated operations and deep application-specific knowledge, while the vendor or project can ensure their software is run in a way that adheres to best practices.
 
 ## Tools/Libraries you can use to write your own cloud native operator
-[Charmed Operator Framework](https://juju.is/)
-[Java Operator SDK](https://github.com/operator-framework/java-operator-sdk)
-[Kopf](https://github.com/nolar/kopf) (Kubernetes Operator Pythonic Framework)
-[kube-rs](https://kube.rs/) (Rust)
-[kubebuilder](https://book.kubebuilder.io/)
-[KubeOps](https://buehler.github.io/dotnet-operator-sdk/) (.NET operator SDK)
-[KUDO](https://kudo.dev/) (Kubernetes Universal Declarative Operator)
-[Mast](https://docs.ansi.services/mast/user_guide/operator/)
-[Metacontroller](https://metacontroller.github.io/metacontroller/intro.html) along with WebHooks that you implement yourself
-[Operator Framework](https://operatorframework.io/)
-[shell-operator](https://github.com/flant/shell-operator)
+- [Charmed Operator Framework](https://juju.is/)
+- [Java Operator SDK](https://github.com/operator-framework/java-operator-sdk)
+- [Kopf](https://github.com/nolar/kopf) (Kubernetes Operator Pythonic Framework)
+- [kube-rs](https://kube.rs/) (Rust)
+- [kubebuilder](https://book.kubebuilder.io/)
+- [KubeOps](https://buehler.github.io/dotnet-operator-sdk/) (.NET operator SDK)
+- [KUDO](https://kudo.dev/) (Kubernetes Universal Declarative Operator)
+- [Mast](https://docs.ansi.services/mast/user_guide/operator/)
+- [Metacontroller](https://metacontroller.github.io/metacontroller/intro.html) along with WebHooks that you implement yourself
+- [Operator Framework](https://operatorframework.io/)
+- [shell-operator](https://github.com/flant/shell-operator)
 
 
 ## Struggles/Setbacks
