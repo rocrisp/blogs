@@ -63,6 +63,13 @@ Use the [`make docker-build docker-push`](https://sdk.operatorframework.io/docs/
 #### Step 6: Run the Operator
 [Deploy your Operator](https://sdk.operatorframework.io/docs/building-operators/golang/tutorial/#run-the-operator) to a Kubernetes cluster and create instances of your custom resource. Validate that your Operator functions as expected and make iterative adjustments based on testing results.
 
+### Information for publishing your Operator on [OperatorHub.io](https://operatorhub.io/contribute)
+
+### Steps of creating, testing, and publishing your operator on OperatorHub.io
+
+![](https://hackmd.io/_uploads/BkJhd6B53.png)
+
+
 ## Conclusion
 With tools like Operator SDK, creating a Kubernetes Operator is within reach even for non-developers. 
 
