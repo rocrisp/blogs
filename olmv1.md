@@ -26,7 +26,7 @@
 ![](https://hackmd.io/_uploads/HJk2rX_oh.png)
 
 <div style="text-align: center;">
-    <img src="images/namespaces-cluster.png" height="200">
+    <img src="images/namespace-cluster.png" height="200">
 </div>
 
 - OLM v1, the Admin makes the operator accessible to tenants.
