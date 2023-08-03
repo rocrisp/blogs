@@ -42,7 +42,7 @@
 </div>
 
 
-**Drop Assumptions of Multiple Operator Instances:**
+### - **Drop Assumptions of Multiple Operator Instances:**
     
    - Let's say you have an operator that deploys an application, AppX, and you have instances of this operator in multiple namespaces each deploying its own instance of AppX. This approach needs to be altered. In the cluster-scoped model, you'll have a single instance of your operator that manages all instances of AppX across all namespaces.
 
@@ -67,7 +67,7 @@ mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
 })
    ```
 
-**Reconcile every object within its namespace:**
+### - **Reconcile every object within its namespace:**
    - In the namespace-scoped model, an operator watching a CustomResource (CR) would only react to changes in its own namespace. In a cluster-scoped operator, you'll change your watch function to observe changes in all namespaces.
 
    - For namespace-scoped operators, the reconciler would get the list of all instances of the custom resource within the operator's namespace. In `controllers/database_controller.go`, you might have something like:
@@ -96,7 +96,7 @@ func (r *DatabaseReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
    ```
 
 
-**Read/store configuration or credentials only in the namespace in which the request came from:**
+### - **Read/store configuration or credentials only in the namespace in which the request came from:**
    - If your operator uses a `Secret` to store credentials, ensure that it reads the `Secret` from the namespace of the `Database` custom resource rather than the operator's namespace. Change:
 
 ```go
@@ -123,28 +123,23 @@ func (r *DatabaseReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 }
 ```
 
-**Provide the ability to serve different versions of your managed application / driver:**
+### - **Provide the ability to serve different versions of your managed application / driver:**
    - Your operator could deploy a database, and different namespaces could require different versions of this database. Your operator should accommodate these requests, for example, by including a `version` field in the CRD that specifies which version to deploy.
 
-**Evolve your operator APIs with non-breaking changes by adding CRD versions:**
+### - **Evolve your operator APIs with non-breaking changes by adding CRD versions:**
    - If you need to change the schema of your CRD (for example, adding a new optional field), you should create a new version of your CRD (e.g., v1beta2), keeping the old one (e.g., v1beta1) for backward compatibility.
 
-**Keep support older CRD versions for as long as possible:**
+### - **Keep support older CRD versions for as long as possible:**
    - Continuing with the previous example, your operator should be capable of managing resources created with both v1beta1 and v1beta2 CRDs.
 
-**Do not remove CRD versions unless you release a new major version of your operator:**
+### - **Do not remove CRD versions unless you release a new major version of your operator:**
    - Suppose you decide to remove the v1beta1 version of the CRD. You should plan to do this only when you're ready to release a new major version of your operator, so users are aware that this is a breaking change.
 
-**If breaking changes to APIs are required, use CRD conversion webhooks if any possible:**
+### - **If breaking changes to APIs are required, use CRD conversion webhooks if any possible:**
    - If you need to introduce a breaking change to your CRD, use a conversion webhook. This webhook could, for example, automatically convert a v1beta1 object to a v1beta2 object when the user tries to interact with it, preserving backward compatibility.
 
-**Do not assume or require cluster-scoped permissions or permissions on cluster-scoped APIs:**
+### - **Do not assume or require cluster-scoped permissions or permissions on cluster-scoped APIs:**
    - Your operator should still work with the least amount of privileges necessary. If it used to need permissions to read a certain ConfigMap in its own namespace, now it needs permissions to read that ConfigMap in any namespace. But it doesn't suddenly need permissions to read all ConfigMaps in all namespaces.
-
-
-
-
-
 
 
 
