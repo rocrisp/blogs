@@ -13,7 +13,10 @@
 ### OLM v0.x vs v1.x
 
 ![](https://hackmd.io/_uploads/SJArQ7_i3.png)
-![](images/olmv0-v1.png)
+
+<div style="text-align: center;">
+    <img src="images/olmv0-v1.png" height="200">
+</div>
 
 
 
@@ -21,7 +24,10 @@
 ### Example of Namespaced-scoped vs Cluster-scoped operator
 
 ![](https://hackmd.io/_uploads/HJk2rX_oh.png)
-![](images/namespaces-cluster.png)
+
+<div style="text-align: center;">
+    <img src="images/namespaces-cluster.png" height="200">
+</div>
 
 - OLM v1, the Admin makes the operator accessible to tenants.
 
@@ -30,7 +36,10 @@
 ### Cluster scoped operators Best-Practices
 
 ![](https://hackmd.io/_uploads/SJ-yvQdsn.png)
-![](images/bestpractice.png)
+
+<div style="text-align: center;">
+    <img src="images/bestpractice.png" height="200">
+</div>
 
 
 **Drop Assumptions of Multiple Operator Instances:**
