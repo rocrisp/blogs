@@ -3,7 +3,7 @@
 
 # OLM v1 Migration
 
-A significant change for OLM (Operator Lifecycle Manager) v1 is its alignment with the inherent cluster-scoped nature of Custom Resource Definitions (CRDs). While specifics are in development, let's explore the rationale and potential trajectory.
+A significant change for OLM (Operator Lifecycle Manager) v1 is its alignment with the inherent cluster-scoped nature of Custom Resource Definitions (CRDs). While specifics are in development, let's explore the rationale, potential trajectory, and best-practices.
 
 ### 1. The Rationale for Change
 The inherent design of CRDs is cluster-scoped. Having a namespace-scoped operator counteracts this fundamental design, potentially leading to complexities and inconsistencies. The shift towards a cluster-scoped operator model in OLM v1 is, therefore, a step towards better aligning with the essence of CRDs.
