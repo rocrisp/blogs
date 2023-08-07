@@ -33,7 +33,7 @@
 
 ----
 
-### Cluster scoped operators Best-Practices
+### Cluster-scoped operators Best-Practices
 
 ![](https://hackmd.io/_uploads/SJ-yvQdsn.png)
 
