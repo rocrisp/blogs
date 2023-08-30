@@ -1,12 +1,12 @@
-# Pipeline Alert Documentation
+# Alert System for Operator-Released Pipeline: A Guide
 
-## Overview
-The Pipeline Alert system is designed to monitor the **operator-released-pipeline** and notify the team via Slack if a failure occurs. This system is hosted in the team's Kubernetes cluster under the **pipeline-alert** namespace.
+## Introduction
+The Operator-Released Pipeline Alert System is engineered to keep an eye on the **operator-released-pipeline**. Should a failure arise, the team is promptly informed via Slack. This system resides in the team's Kubernetes cluster, specifically in the pipeline-alert namespace.
 
-### Workflow
+### Operational Flow
 
 1. **Trigger:** When a Pull Request (PR) is submitted and a [failure](https://github.com/redhat-openshift-ecosystem/certified-operators/pull/2684#issuecomment-1684004951) occurs, GitHub triggers a webhook to the [Pipeline Alert application](https://console-openshift-console.apps.eng.opdev.io/k8s/ns/pipeline-alerts/core~v1~Pod).
-2. **Notification:** The application sends a Slack message with the subject "Operator-Release-Pipeline Failed" to the team channel.
+2. **Alert:** A Slack notification titled "Operator-Release-Pipeline Failure" is sent to the designated team channel.
 3. **Database Logging:** A timestamp is stored in a PostgreSQL database to track the failure.
 4. **Resolution:** After the issue is fixed and the pipeline runs successfully, a new entry is added to the PostgreSQL database to indicate that the pipeline is fixed.
 5. **Metrics:** The time taken to fix the pipeline is calculated based on the timestamps stored in the database.
@@ -64,7 +64,7 @@ Latency                       27ms
 Web Interface                 http://127.0.0.1:4040
 Forwarding                    https://81fc-66-187-232-65.ngrok-free.app -> http://localhost:8080
 ```
-2. Copy the **Forwarding** address and apply it to the GitHub webhook, appending /github to the endpoint.
+2. Copy the **Forwarding** address and apply it to the GitHub webhook, appending /github to the endpoint. Example can be found [here](https://github.com/rocrisp/sla-test/settings/hooks)
 3. Create a PR and add a label: **operator-release-pipeline/failed**
 
 ### Monitoring and SLA and the Grafana dashboard
