@@ -10,8 +10,6 @@ The inherent design of CRDs is cluster-scoped. Having a namespace-scoped operato
 #### Visualizing the Transition: Namespaced vs. Cluster-Scoped Operators
 To offer a clearer picture of this evolution, take a look at the following visual comparison between the existing namespaced-scope operator and the proposed cluster-scoped operator.
 
-![](https://hackmd.io/_uploads/HJk2rX_oh.png)
-
 <div style="text-align: center;">
     <img src="images/namespace-cluster.png" height="200">
 </div>
@@ -19,8 +17,6 @@ To offer a clearer picture of this evolution, take a look at the following visua
 
 ### 2. A Comparative Glimpse: OLM v0.x vs. OLM v1.x
  The diagram below provides a side-by-side comparison, capturing the evolution from OLM v0.x to OLM v1.x.
-
-![](https://hackmd.io/_uploads/SJArQ7_i3.png)
 
 <div style="text-align: center;">
     <img src="images/olmv0-v1.png" height="200">
@@ -33,8 +29,6 @@ OLM v1 aims for a more streamlined, cluster-wide singleton model, ideally suited
 Even as changes are anticipated, OLM v0.x retains its importance. It is understood that OLM v0.x will continue throughout the life of OpenShift 4, potentially shifting to maintenance mode when OLM v1.0 emerges.
 
 ### 5. Best Practices for Cluster-Scoped Operators
-![](https://hackmd.io/_uploads/SJ-yvQdsn.png)
-
 <div style="text-align: center;">
     <img src="images/bestpractice.png" height="200">
 </div>
