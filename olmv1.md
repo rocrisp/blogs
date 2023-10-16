@@ -56,7 +56,7 @@ Not all tenants will see this Operator. It is configurable. Only certain tents a
    ```go
 mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
     Scheme:             scheme,
-    ~~Namespace:          namespace,~~  // Remove this line
+    Namespace:          namespace,  // Remove this line
     MetricsBindAddress: metricsAddr,
     ...
 })
