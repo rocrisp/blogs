@@ -28,80 +28,62 @@ OLM v1 aims for a more streamlined, cluster-wide singleton model, ideally suited
 ### 4. Ongoing Relevance of OLM v0.x
 Even as changes are anticipated, OLM v0.x retains its importance. It is understood that OLM v0.x will continue throughout the life of OpenShift 4, potentially shifting to maintenance mode when OLM v1.0 emerges.
 
+### With the OLMv1, expectation
+The Operator is a Cluster level object.
+It will seat at the cluster level.
+The operator will have a deployment, that seat in the namespace.
+The operator object seat at the cluster level will manage the namespaces.
+Proper tenacy for the operator. The admin, The Operator doesn't automatically get 
+The admin tell olm, which have permission
+Not all tenants will see this Operator. It is configurable. Only certain tents are deamend to see the Operator
+
+
 ### 5. Best Practices for Cluster-Scoped Operators
 <div style="text-align: center;">
     <img src="images/bestpractice.png" height="200">
 </div>
 
+    The Operator needs to support Multi-tenancy
+  
+
 #### Drop Assumptions of Multiple Operator Instances:
     
-   - Let's say you have an operator that deploys an application, AppX, and you have instances of this operator in multiple namespaces each deploying its own instance of AppX. This approach needs to be altered. In the cluster-scoped model, you'll have a single instance of your operator that manages all instances of AppX across all namespaces.
+   - Let's say you have an operator that deploys an application, AppX, and you have instances of this operator in multiple namespaces each deploying its own instance of AppX. This approach needs to be altered. In the cluster-scoped model, you'll have **a single instance of your operator** that manages all instances of AppX across all namespaces.
 
-   - When moving from namespace-scoped to cluster-scoped, you must modify the manager setup in `main.go`. By default, it will manage resources in its own namespace:
+   - When moving from namespace-scoped to cluster-scoped, you must modify the manager setup in `main.go` by removing ```Namespace: namespace```. 
+   - By default, it manages resources cluster wide.
 
    ```go
 mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
     Scheme:             scheme,
-    Namespace:          namespace,  // set to the operator's namespace
+    ~~Namespace:          namespace,~~  // Remove this line
     MetricsBindAddress: metricsAddr,
     ...
 })
    ```
 
-   To make it cluster-scoped, just remove the `Namespace` option:
-
-   ```go
-mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
-    Scheme:             scheme,
-    MetricsBindAddress: metricsAddr,
-    ...
-})
-   ```
 
 #### Reconcile every object within its namespace:
-   - In the namespace-scoped model, an operator watching a CustomResource (CR) would only react to changes in its own namespace. In a cluster-scoped operator, you'll change your watch function to observe changes in all namespaces.
-
-   - For namespace-scoped operators, the reconciler would get the list of all instances of the custom resource within the operator's namespace. In `controllers/database_controller.go`, you might have something like:
-
-   ```go
-// Reconcile loop for Database
-func (r *DatabaseReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-    var databaseList v1alpha1.DatabaseList
-    if err := r.List(ctx, &databaseList, client.InNamespace(req.Namespace)); err != nil {
-        return ctrl.Result{}, err
-    }
-    // Handle each database instance in databaseList...
-}
-   ```
+   - Reconcile object in the namespace where the request is been made.
    
-   For cluster-scoped, change to list with no namespace filter:
-
-   ```go
-func (r *DatabaseReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-    var databaseList v1alpha1.DatabaseList
-    if err := r.List(ctx, &databaseList); err != nil {
+       - In `controllers/memcached_controller.go`, you might have something like:
+```go
+    podList := &corev1.PodList{}
+    listOpts := []client.ListOption{
+        client.InNamespace(memcached.Namespace),
+        client.MatchingLabels(labelsForMemcached(memcached.Name)),
+    }
+    if err = r.List(ctx, podList, listOpts...); err != nil {
+        log.Error(err, "Failed to list pods", "Memcached.Namespace", memcached.Namespace, "Memcached.Name", memcached.Name)
         return ctrl.Result{}, err
     }
-    // Handle each database instance in databaseList...
-}
    ```
 
 
 #### Read/store configuration or credentials only in the namespace in which the request came from:
-   - If your operator uses a `Secret` to store credentials, ensure that it reads the `Secret` from the namespace of the `Database` custom resource rather than the operator's namespace. Change:
+   - The operator should expect credentials coming from one or more tenants essentially support multi-tenancy.
+   - If your operator uses a `Secret` to store credentials, ensure that it reads the `Secret` from the namespace of the `Memcached` custom resource rather than the operator's namespace.
 
-```go
-func (r *DatabaseReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-    // Assume secret is in operator's namespace
-    secret := &corev1.Secret{}
-    if err := r.Get(ctx, client.ObjectKey{Name: "my-secret", Namespace: r.operatorNamespace}, secret); err != nil {
-        return ctrl.Result{}, err
-    }
-    // Use secret...
-}
-```
-
-To:
 
 ```go
 func (r *DatabaseReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
@@ -115,7 +97,8 @@ func (r *DatabaseReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 ```
 
 #### Provide the ability to serve different versions of your managed application / driver:
-   - Your operator could deploy a database, and different namespaces could require different versions of this database. Your operator should accommodate these requests, for example, by including a `version` field in the CRD that specifies which version to deploy.
+   - Instead of harcode the managed application version, include a `version` field in the CRD that specifies which version to deploy.
+   - Let the tenant decides which version of the application to deploy 
 
 #### Evolve your operator APIs with non-breaking changes by adding CRD versions:
    - If you need to change the schema of your CRD (for example, adding a new optional field), you should create a new version of your CRD (e.g., v1beta2), keeping the old one (e.g., v1beta1) for backward compatibility.
