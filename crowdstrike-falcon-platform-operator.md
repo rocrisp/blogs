@@ -47,28 +47,25 @@ Let's walk through the steps to install the CrowdStrike Falcon Platform Operator
 
 - You'll need to be a CrowdStrike customer with a Falcon Cloud Security with Containers subscription to follow this guide. Reach out to redhat@crowdstrike.com if you'd like to trial this. (Please use your company email address and provide background on the clusters you want to protect.)
 #### Step 1: Create a CrowdStrike API client for the operator
- 
 
-1. After logging to the CrowdStrike Falcon website at https://falcon.crowdstrike.com, navigate to the **API Clients and Keys** page ( Support and resources > Resources and tools > API Clients and Keys ), click Create API client.
+Complete the following steps after loggin into CrowsStrike
+1. Navigate to the **API Clients and Keys** page ( Support and resources > Resources and tools > API Clients and Keys ), click Create API client.
 2. Enter details to define your API client:
-- Client Name (required)
-- Description (optional)
-- API Scopes (required):
+- **Client Name**(Required)
+- **Description** (optional)
+- **API Scopes**(Required):
     - Select Falcon Images Download with read permission
     - Select Sensor Download with read permission 
 3. Click Create to save the API client and generate the client ID and secret.
 
     ![new-api-client](images/apiclient.png)
 
-
-
 #### Step 2: Install CrowdStrike Falcon Operator from OperatorHub
 
-1. In your Openshift cluster, Navigate to **Operators** > **OperatorHub**.
+Follow these steps within your Openshift cluster.
+1. Navigate to **Operators** > **OperatorHub**.
 2. Search for "Falcon Operator" and select the tile offered by the Marketplace. Click "Install."
-3. The operator will, by default, be installed in the `falcon-operator` namespace. Proceed with the default configurations and select "**Install**."
-
-    This installation process deploys three custom resources: `FalconAdmission`, `FalconNodeSensor`, and `FalconContainer`. (Note that `FalconContainer` is a sidecar sensor designed for managed Kubernetes services like AWS Fargate and is not intended for OpenShift at this time).
+3. By default, the operator installs in the falcon-operator namespace. Continue with the default settings and click "Install." This installs three custom resources: FalconAdmission, FalconNodeSensor, and FalconContainer (a sidecar sensor for managed Kubernetes services ;ole AWS Fargate, not for OpenShift currently).
 4. You will receive confirmation that the operator is "ready for use."
 5. Click on View Operator to proceed.
 
