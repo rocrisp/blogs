@@ -49,7 +49,7 @@ Let's walk through the steps to install the CrowdStrike Falcon Platform Operator
 #### Step 1: Create a CrowdStrike API client for the operator
  
 
-1. On the API Clients and Keys page ( Support and resources > Resources and tools > API Clients and Keys ), click Create API client.
+1. After logging to the CrowdStrike Falcon website at https://falcon.crowdstrike.com, navigate to the **API Clients and Keys** page ( Support and resources > Resources and tools > API Clients and Keys ), click Create API client.
 2. Enter details to define your API client:
 - Client Name (required)
 - Description (optional)
@@ -64,7 +64,7 @@ Let's walk through the steps to install the CrowdStrike Falcon Platform Operator
 
 #### Step 2: Install CrowdStrike Falcon Operator from OperatorHub
 
-1. Navigate to **Operators** > **OperatorHub** in your OpenShift cluster.
+1. In your Openshift cluster, Navigate to **Operators** > **OperatorHub**.
 2. Search for "Falcon Operator" and select the tile offered by the Marketplace. Click "Install."
 3. The operator will, by default, be installed in the `falcon-operator` namespace. Proceed with the default configurations and select "**Install**."
 
