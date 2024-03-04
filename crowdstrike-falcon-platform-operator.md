@@ -1,8 +1,9 @@
 # Stopping Breaches on Red Hat OpenShift with the CrowdStrike Falcon Operator
 
+
 By Rose Crisp & Evan Stoner
 
-![falcon](https://hackmd.io/_uploads/r1_s0CNrT.png)
+![falcon](images/falconblog.png)
 
 As Kubernetes becomes increasingly integral to production environments, cyber adversaries are likewise becoming more skilled in cloud-native exploitation. According to the [CrowdStrike 2024 Global Threat Report](https://www.crowdstrike.com/global-threat-report/), cases involving exploitation of cloud services increased by 110% in 2023, far outpacing non-cloud cases which grew at only 60%.
 
@@ -57,7 +58,7 @@ Let's walk through the steps to install the CrowdStrike Falcon Platform Operator
     - Select Sensor Download with read permission 
 3. Click Create to save the API client and generate the client ID and secret.
 
-    ![new-api-client](https://hackmd.io/_uploads/Hyw34bp3T.png)
+    ![new-api-client](images/apiclient.png)
 
 
 
