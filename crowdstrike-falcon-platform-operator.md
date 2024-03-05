@@ -3,6 +3,8 @@
 
 By Rose Crisp & Evan Stoner
 
+Edited by Dana Brown
+
 ![falcon](images/falconblog.png)
 
 As Kubernetes becomes increasingly integral to production environments, cyber adversaries are likewise becoming more skilled in cloud-native exploitation. According to the [CrowdStrike 2024 Global Threat Report](https://www.crowdstrike.com/global-threat-report/), cases involving exploitation of cloud services increased by 110% in 2023, far outpacing non-cloud cases which grew at only 60%.
